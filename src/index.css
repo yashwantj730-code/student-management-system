@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.input { @apply w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-slate-100 placeholder-slate-500 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30; }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium transition; }
