@@ -1,5 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.input { @apply w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-slate-100 placeholder-slate-500 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30; }
-.btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium transition; }
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply min-h-screen bg-slate-50 font-sans text-slate-800 antialiased dark:bg-[#070b1a] dark:text-slate-100; }
+  h1, h2, h3 { @apply font-display; }
+  ::selection { @apply bg-indigo-500/30; }
+  * { scrollbar-width: thin; scrollbar-color: rgb(148 163 184 / .35) transparent; }
+  input[type="date"]::-webkit-calendar-picker-indicator { @apply cursor-pointer opacity-60 dark:invert; }
+}
+
+@layer components {
+  .card { @apply rounded-2xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-200/50 backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.035] dark:shadow-none; }
+  .card-hover { @apply transition duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/10 dark:hover:border-white/15; }
+  .btn { @apply inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-xl px-4 py-2 text-sm font-semibold transition active:scale-[.97] disabled:pointer-events-none disabled:opacity-50; }
+  .btn-primary { @apply btn bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110; }
+  .btn-outline { @apply btn border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10; }
+  .btn-ghost { @apply btn text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10; }
+  .btn-danger { @apply btn bg-rose-500 text-white shadow-lg shadow-rose-500/25 hover:bg-rose-600; }
+  .icon-btn { @apply inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 active:scale-95 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white; }
+  .input { @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder-slate-400 outline-none transition focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/15 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-indigo-400/70; }
+  .label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+  .th { @apply whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+  .td { @apply whitespace-nowrap px-4 py-3 text-sm; }
+  .gradient-text { @apply bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent; }
+}
+
+@media print {
+  @page { size: A4; margin: 12mm; }
+  html, body { background: #fff !important; color: #0f172a !important; }
+  .no-print { display: none !important; }
+  .print-area { box-shadow: none !important; border: none !important; margin: 0 !important; max-width: none !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
